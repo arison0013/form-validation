@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+
+<body>
+    <section>
+        <div class="parent">
+            <div class="outer">
+                <div class="main">
+                    <form method="post">
+                        <div class="header">
+
+                            <h1>Create Account</h1>
+
+                        </div>
+                        <div class="inner">
+
+                            <div class="online">
+                                <div class="c1">
+                                    <label for="name" class="ltext"> First name<span class="danger">*</span></label><br>
+                                    <input type="text" name="firstname" id="fname" placeholder="Enter your name"
+                                        class="input">
+
+                                </div>
+                                <div class="c2">
+                                    <label for="name" class="ltext"> Last name</label><br>
+                                    <input type="text" name="lastname" id="lname" placeholder="Enter your last name"
+                                        class="input">
+                                </div>
+
+                            </div>
+                            <div class="online">
+                                <div class="singleContainer">
+                                    <label for="email" class="ltext">Email<span class="danger">*</span></label><br>
+                                    <input type="email" name="email" id="fmail" placeholder="Enter your email"
+                                        class="input" />
+                                </div>
+                            </div>
+
+                            <div class="online">
+                                <div class="c1">
+                                    <label for="pass" class="ltext">Password<span class="danger">*</span></label>
+                                    <input type="password" name="password" id="pass" placeholder="Enter your password"
+                                        class="input">
+                                </div>
+                                <div class="c2">
+                                    <label for="cpass" class="ltext">Confirm Password<span
+                                            class="danger">*</span></label>
+                                    <input type="password" name="confirmpassword" id="cpass"
+                                        placeholder="Enter your password" class="input">
+                                </div>
+                            </div>
+
+                            <div class="online">
+                                <div class="c1">
+                                    <label class="ltext">Gender</label>
+                                    <div class="radio">
+                                        <label for="male">
+                                            <input type="radio" name="gender" id="male">Male</label>
+                                        <!-- </div>
+                        <div class="rinput"> -->
+                                        <label for="female">
+                                            <input type="radio" name="gender" id="female">Female</label>
+
+                                    </div>
+                                </div>
+                                <div class="c2">
+                                    <label class="ltext">Hobbies</label>
+                                    <div class="radio">
+                                        <label for="music">
+                                            <input type="checkbox" name="music" class="hobby" id="fmusic">Music
+                                        </label>
+                                        <label for="sport">
+                                            <input type="checkbox" name="sport" class="hobby" id="fsport">sports
+                                        </label>
+                                        <label for="travel">
+                                            <input type="checkbox" name="travel" class="hobby" id="ftravel">Travel
+                                        </label>
+                                        <label for="movie">
+                                            <input type="checkbox" name="movie" class="hobby" id="fid">movies
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="online">
+                                <div class="c1">
+                                    <label for="" class="ltext">Source of Income</label><br>
+                                    <select name="select" id="fselect" class="source">
+                                        <option value="a" class="select">Employed</option>
+                                        <option value="b" class="select">SelfEmployed</option>
+                                        <option value="c" class="select">Unemployed</option>
+                                    </select>
+                                </div>
+                                <div class="c2">
+                                    <label for="" class="ltext">Income</label><br>
+                                    <input type="range" name="range" id="frange" min="0" max="100" value="0" step="5"
+                                        class="width">
+                                    <span id="sid">20k</span>
+                                </div>
+                            </div>
+
+                            <div class="online">
+                                <div class="c1">
+                                    <label for="" class="ltext">Upload profile picture</label><br>
+                                    <input type="file" name="file" id="ffile" class="">
+                                </div>
+                                <div class="c2">
+                                    <label for="" class="ltext">Age</label><br>
+                                    <input type="number" name="num" id="fnumber" min="18" max="65" value="18"
+                                        class="input">
+                                </div>
+                            </div>
+
+                            <div class="online">
+                                <div class="singleContainer">
+                                    <label for="" class="ltext">Bio</label><br>
+                                    <textarea name="textarea" id="ftextarea" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <button type="button" onclick="validate()" class="btn">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    function validate() {
+        var name = document.getElementById("fname");
+        var lastname = document.getElementById("lname")
+        var email = document.getElementById("fmail")
+        var password = document.getElementById("pass")
+        var confirmpassword = document.getElementById("cpass")
+        var gender = document.getElementsByName("gender")
+        var hobby = document.getElementsByClassName("hobby")
+        var select = document.getElementsByClassName("select")
+        var range = document.getElementById("frange")
+        var file = document.getElementById("ffile")
+        var bio = document.getElementById("ftextarea")
+
+        console.log(range.value);
+
+        var msg = [];
+        console.log(name);
+
+        if (name.value == "") {
+            msg= "Name is reqired";
+            
+        }
+        else if (lastname.value == "") {
+            msg = "lastname is required";
+            
+        }
+        else if (password.value == "") {
+            msg = "password is required";
+        }
+        else if (confirmpassword.value == "") {
+            msg = "confirmpassword is required";
+        }
+        else if (gender[0].checked == false && gender[1].checked == false) {
+            msg = "select gender";
+        }
+        else if (hobby[0].checked == false && hobby[1].checked == false && hobby[2].checked == false && hobby[3].checked == false) {
+            msg = "select hobbies";
+           
+        }
+        else if (select.value ==false) {
+            msg = "soruce of income is required";
+           
+        }
+        else if (range.value ==0) {
+            msg = "select range";
+            
+        }
+        else if (file.value !=file ) {
+            msg = "enter file";
+            
+        }
+
+        else if (bio.value == "") {
+            msg = "bio is required";
+            
+        }
+        else if (age.value >= 18) {
+            msg = "age must be greater than 18 ";
+            
+        }
+        if(msg){
+            alert(msg) ;
+            return false;
+        }else{
+            alert("Yee!!!!!!");
+            return true;
+        }
+
+        
+    }
+
+/// document.getElementsByClassName to fetch the class 
+
+
+// document.getElementById("demo"); to fetch id of currect document 
+</script>
+
+</html>
